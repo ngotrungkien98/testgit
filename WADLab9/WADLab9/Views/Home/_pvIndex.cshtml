@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WADLab9.Models.CustomerOrder>
+    <link href="~/css/Home.css" rel="stylesheet" />
+    <h3>
+        Order List
+    </h3>
+
+<p>
+   @Html.ActionLink("Create","index","Customer")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.orderdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customeraddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerphone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subtotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.orderdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customeraddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customerphone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subtotal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
